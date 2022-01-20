@@ -1,0 +1,19 @@
+/* SearchForm  */
+.SearchForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputContainer {
+    display: flex;
+}
+
+.SearchForm input {
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: blue;
+    border-radius: 5px;
+}
