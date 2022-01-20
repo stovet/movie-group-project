@@ -3,7 +3,7 @@ export interface MovieResponse {
 }
 
 export interface Results {
-  result: {
+    result: {
     title: string;
     vote_average: number;
     overview: string;
