@@ -21,14 +21,13 @@ const Main = () => {
   }
 
   useEffect(() => {
-    fetchTMDB().then((data) => setMovies(data));
+    fetchTMDB(rating).then((data) => setMovies(data));
   }, []);
 
   return (
     <div>
-      <h1>Movie API</h1>
-      <ResultList movies={movies} />
       <SearchForm onSubmit={handleSubmit} />
+      <ResultList movies={movies} />
     </div>
   );
 };

@@ -1,37 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+.App {
+  margin: 2%;
+}
+
+body {
+  font-family: "Luxurious Roman", cursive;
+  background-color: rgb(160, 43, 43);
+}
 /* SearchForm  */
 .SearchForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
 }
-.inputContainer {
-    display: flex;
+
+.inputContainer input {
+  display: flex;
+  width: 50%;
 }
 
 .SearchForm input {
-    margin-bottom: 10px;
-    border-radius: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 button {
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    width: 75px;
+  background-color: rgb(69, 69, 136);
+  color: white;
+  border-radius: 5px;
+  width: 75px;
+}
+button:hover {
+  background-color: rgb(16, 163, 16);
+  color: black;
+  transition-duration: 0.3s;
 }
 
+/* Header */
+
+.Header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  font-family: "Great Vibes", cursive;
+}
+
+/* ResultsList / Results */
+
 .Result {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 .Result p {
-    align-items: center;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
 .Result span {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
+}
+.Result img {
+  box-shadow: 0 0 15px 5px rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+.Result img:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.03);
+  cursor: pointer;
 }
