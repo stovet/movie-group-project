@@ -1,13 +1,18 @@
 import { moveEmitHelpers } from "typescript";
+import { Results } from "../model/MovieModel";
 
-interface Prop {}
+interface Prop {
+  movie: Results;
+}
 
-function Result({}): Prop {
+function Result({ movie }: Prop) {
   return (
     <div className="Result">
-      {/* <h3>{movie.title}</h3>
-    <img src={url} alt="Cover art for movie" />
-    <p>{movie.overview} <span>{movie.vote_average}</span></p> */}
+      <h3>{movie.result.title}</h3>
+      <img src={movie.result.poster_path} alt="Cover art for movie" />
+      <p>
+        {movie.result.overview} <span>{movie.result.vote_average}</span>
+      </p>
     </div>
   );
 }
