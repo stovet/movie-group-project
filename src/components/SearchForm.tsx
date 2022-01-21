@@ -4,7 +4,7 @@ interface Props {
     onSubmit: (rating: number, runTime: number, genre: string) => void;
 }
 
-function SearchForm(onSubmit: Props){
+function SearchForm({onSubmit}: Props){
     const [rating, setRating] = useState(0);
     const [runTime, setRunTime] = useState(0);
     const [genre, setGenre] = useState("");
