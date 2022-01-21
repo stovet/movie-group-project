@@ -6,12 +6,14 @@ interface Prop {
 }
 
 function Result({ movie }: Prop) {
+  console.log(movie.title);
+
   return (
     <div className="Result">
-      <h3>{movie.result.title}</h3>
-      <img src={movie.result.poster_path} alt="Cover art for movie" />
+      <h3>{movie.title}</h3>
+      <img src={movie.poster_path} alt="Cover art for movie" />
       <p>
-        {movie.result.overview} <span>{movie.result.vote_average}</span>
+        {movie.overview} <span>{movie.vote_average}</span>
       </p>
     </div>
   );

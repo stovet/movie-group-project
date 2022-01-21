@@ -6,7 +6,7 @@ export function fetchTMDB(): Promise<Results[]> {
   return axios
     .get("https://api.themoviedb.org/3/discover/movie", {
       params: {
-        api_key: api_key,
+        api_key: "b80ce08c456bca9bb040f009efb1aaf9",
       },
     })
     .then((res) => res.data.results);
