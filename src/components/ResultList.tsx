@@ -1,5 +1,8 @@
+import Result from "./Result";
 
-function ResultList(){
+interface Prop {}
 
+function ResultList({}): Prop {
+  return <div>{}</div>;
 }
 export default ResultList;

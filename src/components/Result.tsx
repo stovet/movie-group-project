@@ -1,11 +1,13 @@
 import { moveEmitHelpers } from "typescript";
 
-function Result() {
+interface Prop {}
+
+function Result({}): Prop {
   return (
     <div className="Result">
-      {/* <h3>{title}</h3>
-    <img src={url} alt="" />
-    <p>{overview} <span>{}</span></p> */}
+      {/* <h3>{movie.title}</h3>
+    <img src={url} alt="Cover art for movie" />
+    <p>{movie.overview} <span>{movie.vote_average}</span></p> */}
     </div>
   );
 }

@@ -1,5 +1,2 @@
-
-function Main(){
-
-}
+function Main() {}
 export default Main;
