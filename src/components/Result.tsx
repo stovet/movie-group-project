@@ -11,7 +11,10 @@ function Result({ movie }: Prop) {
   return (
     <div className="Result">
       <h3>{movie.title}</h3>
-      <img src={movie.poster_path} alt="Cover art for movie" />
+      <img
+        src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
+        alt="Cover art for movie"
+      />
       <p>
         {movie.overview} <span>{movie.vote_average}</span>
       </p>
