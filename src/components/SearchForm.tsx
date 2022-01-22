@@ -17,7 +17,7 @@ function SearchForm({ onSubmit }: Props) {
 
   return (
     <div className="SearchForm">
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="form">
         <div className="inputContainer">
           <label htmlFor="rating">Rating: </label>
           <input
@@ -37,6 +37,7 @@ function SearchForm({ onSubmit }: Props) {
             type="number"
             name="runTime"
             id="runTime"
+            placeholder="90"
             onChange={(e) => setRunTime(parseInt(e.target.value))}
           />
         </div>
@@ -46,11 +47,17 @@ function SearchForm({ onSubmit }: Props) {
             type="text"
             name="genre"
             id="genre"
+            placeholder="Action"
             onChange={(e) => setGenre(e.target.value)}
           />
         </div>
         <button type="submit">Search</button>
       </form>
+      <button>
+        <a id="watch-listbtn" href="/watch-list">
+          Watch List
+        </a>
+      </button>
     </div>
   );
 }

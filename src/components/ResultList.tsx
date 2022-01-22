@@ -1,5 +1,6 @@
 import { Results } from "../model/MovieModel";
 import Result from "./Result";
+import { WatchList } from "./WatchList";
 
 interface Prop {
   movies: Results[];
