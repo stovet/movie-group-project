@@ -14,7 +14,6 @@ const Main = () => {
 
   const [page, setPage] = useState(1);
   const [title, setTitle] = useState("");
-  const [genre, setGenre] = useState(0);
   const [genreId, setGenreId] = useState(0);
 
   function handleSubmit(page: number, title: string, genreId: number) {
