@@ -9,10 +9,10 @@ interface Prop {
 
 function Result({ movie }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
-  let watchList = [];
+  let watchList: any = [];
 
   if (checked === true) {
-    watchList.push(movie);
+    watchList.unshift(movie);
     console.log(watchList);
   }
 
