@@ -47,6 +47,10 @@ function SearchForm({ onSubmit }: Props) {
     setId(movieTypes);
 
     onSubmit(rating, title, genreId);
+
+    if (genre === "") {
+      setGenreId(28);
+    }
   }
 
   return (
@@ -58,8 +62,8 @@ function SearchForm({ onSubmit }: Props) {
             type="number"
             name="rating"
             id="rating"
-            min={0}
-            placeholder="0.0"
+            min={1}
+            placeholder="1"
             onChange={(e) => setRating(parseFloat(e.target.value))}
           />
         </div>

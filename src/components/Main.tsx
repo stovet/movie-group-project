@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Results } from "../model/MovieModel";
-import { fetchRatingTMDB } from "../Service/tmdbService";
+import { fetchTMDB, fetchGenreTMDB } from "../Service/tmdbService";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
 import Header from "./Header";
@@ -13,7 +13,7 @@ const Main = () => {
 
   const [page, setPage] = useState(1);
   const [title, setTitle] = useState("");
-  const [genreId, setGenreId] = useState(0);
+  const [genreId, setGenreId] = useState(28);
 
   function handleSubmit(page: number, title: string, genreId: number) {
     //   console.log(rating);
@@ -23,17 +23,13 @@ const Main = () => {
   }
 
   useEffect(() => {
-    if (page || genreId || title) {
-      fetchRatingTMDB(page, genreId, title).then((data) => setMovies(data));
+    if (page) {
+      fetchTMDB(page).then((data) => setMovies(data));
+      if (genreId) {
+        fetchGenreTMDB(page, genreId).then((data) => setMovies(data));
+      }
     }
-    // if (title){
-    //     fetchTMDB(page, title, genre).then((data) => setMovies(data));
-    // }
-    // if(genre){
-    //     fetchTMDB( genre).then((data) => setMovies(data));
-    // }
-    // fetchTMDB().then((data) => setMovies(data));
-  }, [page, title, genreId]);
+  }, [page, genreId]);
 
   return (
     <div>
