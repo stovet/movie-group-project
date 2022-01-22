@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { moveEmitHelpers } from "typescript";
 import { Results } from "../model/MovieModel";
-import { WatchList } from "./WatchList";
 
 interface Prop {
   movie: Results;
@@ -9,12 +7,6 @@ interface Prop {
 
 function Result({ movie }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
-  let watchList: any = [];
-
-  if (checked === true) {
-    watchList.unshift(movie);
-    console.log(watchList);
-  }
 
   return (
     <div className="Result">
