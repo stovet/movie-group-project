@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { MovieResponse, Results } from "../model/MovieModel";
-import { fetchTMDB } from "../Service/tmdbService";
+import { fetchRatingTMDB, fetchTMDB } from "../Service/tmdbService";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
+import Header from "./Header";
+import { WatchList } from "./WatchList";
 
 const Main = () => {
   // set variable & state function for movie display
@@ -10,25 +12,37 @@ const Main = () => {
   // set variables & state function for form searches
   const [formSearch, setFormSearch] = useState("");
 
-  const [rating, setRating] = useState(0);
-  const [runTime, setRunTime] = useState(0);
-  const [genre, setGenre] = useState("");
+  const [page, setPage] = useState(1);
+  const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState(0);
+  const [genreId, setGenreId] = useState(0);
 
-  function handleSubmit(rating: number, runTime: number, genre: string) {
-    setRating(rating);
-    setRunTime(runTime);
-    setGenre(genre);
+  function handleSubmit(page: number, title: string, genreId: number) {
+    //   console.log(rating);
+    setPage(page);
+    setTitle(title);
+    setGenreId(genreId);
   }
 
   useEffect(() => {
-    fetchTMDB().then((data) => setMovies(data));
-  }, []);
+    if(page || genreId || title){
+        fetchRatingTMDB(page, genreId, title).then((data) => setMovies(data));
+    }
+    // if (title){
+    //     fetchTMDB(page, title, genre).then((data) => setMovies(data));
+    // }
+    // if(genre){
+    //     fetchTMDB( genre).then((data) => setMovies(data));
+    // }
+    // fetchTMDB().then((data) => setMovies(data));
+
+  }, [page, title, genreId]);
 
   return (
     <div>
       <h1>Movie API</h1>
-      <ResultList movies={movies} />
       <SearchForm onSubmit={handleSubmit} />
+      <ResultList movies={movies} />  
     </div>
   );
 };

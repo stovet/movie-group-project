@@ -1,7 +1,11 @@
 function Header() {
   return (
     <div className="Header">
-      <h1>yo</h1>
+<<<<<<< Updated upstream
+      <h1>Better than Disney</h1>
+=======
+      
+>>>>>>> Stashed changes
     </div>
   );
 }

@@ -33,7 +33,7 @@ function SearchForm({ onSubmit }: Props) {
 
   return (
     <div className="SearchForm">
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="form">
         <div className="inputContainer">
           <label htmlFor="rating">Page: </label>
           <input
@@ -65,6 +65,11 @@ function SearchForm({ onSubmit }: Props) {
         </div>
         <button type="submit">Search</button>
       </form>
+      <button>
+        <a id="watch-listbtn" href="/watch-list">
+          Watch List
+        </a>
+      </button>
     </div>
   );
 }
