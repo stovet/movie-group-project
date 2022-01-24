@@ -31,7 +31,7 @@ function WatchList() {
     setId(id);
 
     console.log("Logged Click");
-    let newMoive = {
+    let newMovie = {
       title:title,
       vote_average: vote_average,
       overview: overview,
