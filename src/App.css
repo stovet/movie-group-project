@@ -85,6 +85,7 @@ button:hover {
 .Result img {
   box-shadow: 0 0 15px 5px rgb(0, 0, 0);
   border-radius: 20px;
+  transition: transform 450ms
 }
 
 .Result img:hover {

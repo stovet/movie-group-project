@@ -4,6 +4,7 @@ import { fetchTMDB, fetchGenreTMDB } from "../Service/tmdbService";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
 import Header from "./Header";
+import  WatchList  from "./WatchList";
 
 const Main = () => {
   // set variable & state function for movie display
@@ -36,6 +37,7 @@ const Main = () => {
       <Header />
       <SearchForm onSubmit={handleSubmit} />
       <ResultList movies={movies} />
+
     </div>
   );
 };

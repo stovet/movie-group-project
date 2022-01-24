@@ -1,43 +1,59 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { Results } from "../model/MovieModel";
-import { fetchGenreTMDB, fetchTMDB } from "../Service/tmdbService";
-function Result() {
-  const [movies, setMovies] = useState<Results[]>([]);
-  const [genreId, setGenreId] = useState(28);
-  const [page, setPage] = useState(1);
-  const id: number = parseInt(useParams().id!);
-  let foundMovie: Results | undefined = movies.find((movie) => id === movie.id);
+import { SingleMovie } from "./SingleMovie";
+import  WatchList  from "./WatchList";
 
-  if (!foundMovie) {
-    foundMovie = {
-      title: "",
-      vote_average: 0,
-      overview: "",
-      poster_path: "",
-      original_language: "",
-      id: 0,
-    };
+interface Prop {
+  movie: Results;
+}
+
+function Result({ movie }: Prop) {
+  const [checked, setChecked] = useState<boolean>(false);
+  const [watchListMovies, setWatchListMovies] = useState([{}]);
+
+  if (checked) {
+    onWatchSubmit(movie)
   }
-
-  useEffect(() => {
-    if (page) {
-      fetchTMDB(page).then((data) => setMovies(data));
-      if (genreId) {
-        fetchGenreTMDB(page, genreId).then((data) => setMovies(data));
-      }
-    }
-  }, [page, genreId]);
-
+  
+  function onWatchSubmit (newMovie:Results) {
+    console.log("Logged The Click");
+    setWatchListMovies((prev)=>[...prev, newMovie])
+  }
+  
   return (
     <div className="Result">
-      <h1>{foundMovie.title}</h1>
-      <img
-        src={"https://image.tmdb.org/t/p/w300/" + foundMovie.poster_path}
-        alt="Cover art for movie"
-      />
+      <h2>{movie.title}</h2>
+      <a href={`/${movie.id}`}>
+        <img
+          src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
+          alt="Cover art for movie"
+        />
+      </a>
       <p>
-        {foundMovie.overview} - Rating: {foundMovie.vote_average}
+        Rating: <span className="rating-box">{movie.vote_average}</span>
+      </p>
+      <p>
+        {checked ? (
+          <label htmlFor="">
+            In watch list
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="watchList"
+              onClick={() => onWatchSubmit}
+            />
+          </label>
+        ) : (
+          <label htmlFor="">
+            Add to watch list
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="watchList"
+              onClick={() => onWatchSubmit}
+            />
+          </label>
+        )}
       </p>
     </div>
   );
