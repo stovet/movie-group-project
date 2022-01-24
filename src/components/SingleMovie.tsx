@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Results } from "../model/MovieModel";
+import { fetchIdTMDB } from "../Service/tmdbService";
 import Result from "./Result";
 
 export function SingleMovie() {
   const [movies, setMovies] = useState<Results[]>([]);
   const id: number = parseInt(useParams().id!);
   let foundMovie: Results | undefined = movies.find((movie) => id === movie.id);
+
+  useEffect(() => {
+    fetchIdTMDB(id).then((data) => setMovies);
+  }, [id]);
 
   if (!foundMovie) {
     foundMovie = {

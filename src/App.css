@@ -114,3 +114,26 @@ button:hover {
 #watchList:hover {
   cursor: pointer;
 }
+
+@media screen and (min-width: 768px) {
+  img {
+    width: 200px;
+  }
+  .Result{
+    width: 30%;
+  }
+  .ResultList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 900px){
+  img {
+    width: 250px;
+  }
+}
+@media screen and (min-width: 1200px){
+  img {
+    width: 300px;
+  }
+}
