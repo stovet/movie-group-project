@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { WatchList } from "./components/WatchList";
 import Result from "./components/Result";
+import { SingleMovie } from "./components/SingleMovie";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/watch-list" element={<WatchList />} />
-          <Route path="/:id" element={<Result />} />
+          <Route path="/:id" element={<SingleMovie />} />
         </Routes>
       </Router>
     </div>
