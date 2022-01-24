@@ -4,7 +4,8 @@ import { fetchTMDB, fetchGenreTMDB } from "../Service/tmdbService";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
 import Header from "./Header";
-import { on } from "events";
+import {addToWatchList, WatchListDB} from "../model/WatchListDB"
+
 
 interface Props {
   onWatchSubmit: (movie: Results) => void
@@ -13,7 +14,8 @@ interface Props {
 let newMovie:any;
 
 function WatchList() {
-  const [watchListMovies, setWatchListMovies] = useState([{}]);
+  const [watchList, setWatchList] = useState<Results[]>(WatchListDB);
+
   const [title, setTitle] = useState("");
   const [vote_average, setVote_Average] = useState(0);
   const [overview, setOverview] = useState("");
@@ -22,7 +24,15 @@ function WatchList() {
   const [id, setId] = useState(0);   
   
   function watchListHandler ({onWatchSubmit}: Props) {
-    
+
+    setWatchList(prevWatchList => {
+      const newWatchList = prevWatchList.slice(0);
+      newWatchList.push(newMovie);
+      return newWatchList
+    });
+
+    addToWatchList(newMovie);
+
     setTitle(title);
     setVote_Average(vote_average);
     setOverview(overview);
@@ -45,16 +55,17 @@ function WatchList() {
   }
   return (
     <div>
-      <h1>Hello</h1>
-      <h1>{newMovie.title}</h1>
-      <p>{newMovie.vote_average}</p>
-      <p>{newMovie.overview}</p>
-      <p>{newMovie.poster_path}</p>
-      {/* <button >
-        <a href="/" id="watch-listbtn">
-          Back
-        </a>
-      </button> */}
+
+      {WatchListDB.map((movie, i) => 
+        <div className="Result" key={i}>
+          <h1>{movie.title}</h1>
+          <a href={`/${movie.id}`}>
+            <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt="Cover art for movie"/>
+          </a>
+          <p> Rating: <span className="rating-box">{movie.vote_average}</span> </p>
+        </div> 
+      )}
+
     </div>
   );
 }
