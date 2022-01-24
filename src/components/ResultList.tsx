@@ -12,7 +12,7 @@ function ResultList({ movies }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <div>
+    <div className="ResultList">
       {movies.map((movie, i) => (
         <Result key={i} movie={movie} />
       ))}
