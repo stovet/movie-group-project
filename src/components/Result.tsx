@@ -7,9 +7,7 @@ function Result() {
   const [genreId, setGenreId] = useState(28);
   const [page, setPage] = useState(1);
   const id: number = parseInt(useParams().id!);
-  let foundMovie: Results | undefined = movies.find(
-    (movie, index) => id === index
-  );
+  let foundMovie: Results | undefined = movies.find((movie) => id === movie.id);
 
   if (!foundMovie) {
     foundMovie = {
@@ -18,6 +16,7 @@ function Result() {
       overview: "",
       poster_path: "",
       original_language: "",
+      id: 0,
     };
   }
 

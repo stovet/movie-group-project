@@ -13,9 +13,9 @@ function ResultList({ movies }: Prop) {
   return (
     <div>
       {movies.map((movie, i) => (
-        <div key={i} className="Result">
+        <div key={movie.id} className="Result">
           <h2>{movie.title}</h2>
-          <a href={`/${i}`}>
+          <a href={`/${movie.id}`}>
             <img
               src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
               alt="Cover art for movie"
