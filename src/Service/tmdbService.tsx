@@ -39,7 +39,6 @@ export function fetchIdTMDB(id: number): Promise<Results> {
     })
     .then((res) => res.data.results);
 }
-
 export function fetchTitleTMDB(title: string): Promise<Results[]> {
   const api_key = process.env.REACT_API_TMDB_KEY || "";
 
