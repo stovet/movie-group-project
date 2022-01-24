@@ -52,5 +52,3 @@ export function fetchTitleTMDB(title: string): Promise<Results[]> {
     })
     .then((res) => res.data.results);
 }
-
-// original_title.desc

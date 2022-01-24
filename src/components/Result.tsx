@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Results } from "../model/MovieModel";
 import { SingleMovie } from "./SingleMovie";
+import  WatchList  from "./WatchList";
 
 interface Prop {
   movie: Results;
@@ -8,7 +9,17 @@ interface Prop {
 
 function Result({ movie }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
+  const [watchListMovies, setWatchListMovies] = useState([{}]);
 
+  if (checked) {
+    onWatchSubmit(movie)
+  }
+  
+  function onWatchSubmit (newMovie:Results) {
+    console.log("Logged The Click");
+    setWatchListMovies((prev)=>[...prev, newMovie])
+  }
+  
   return (
     <div className="Result">
       <h2>{movie.title}</h2>
@@ -29,7 +40,7 @@ function Result({ movie }: Prop) {
               type="checkbox"
               name="checkbox"
               id="watchList"
-              onClick={(e) => setChecked(false)}
+              onClick={() => onWatchSubmit}
             />
           </label>
         ) : (
@@ -39,7 +50,7 @@ function Result({ movie }: Prop) {
               type="checkbox"
               name="checkbox"
               id="watchList"
-              onClick={(e) => setChecked(true)}
+              onClick={() => onWatchSubmit}
             />
           </label>
         )}
