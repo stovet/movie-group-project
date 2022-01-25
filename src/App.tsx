@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/watch-list" element={<WatchList />} />
-          <Route path="/:id" element={<SingleMovie />} />
+          {/* <Route path="/:id" element={<SingleMovie />} /> */}
         </Routes>
       </Router>
     </div>

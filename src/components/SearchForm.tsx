@@ -63,12 +63,11 @@ function SearchForm({ onSubmit }: Props) {
             name="rating"
             id="rating"
             min={1}
-            placeholder="1"
             onChange={(e) => setRating(parseFloat(e.target.value))}
           />
         </div>
         <div className="inputContainer">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
             name="title"
@@ -78,7 +77,7 @@ function SearchForm({ onSubmit }: Props) {
         </div>
         <div className="inputContainer">
           <label htmlFor="genre">Genre:</label>
-          <input
+          <input className="genreInput"
             type="text"
             name="genre"
             id="genre"

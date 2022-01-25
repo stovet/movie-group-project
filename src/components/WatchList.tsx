@@ -31,7 +31,6 @@ function WatchList() {
       return newWatchList
     });
 
-    addToWatchList(newMovie);
 
     setTitle(title);
     setVote_Average(vote_average);
@@ -50,6 +49,7 @@ function WatchList() {
       id: id
     }
 
+    addToWatchList(newMovie);
     onWatchSubmit(newMovie)
 
   }
