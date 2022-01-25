@@ -1,9 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { Results } from "../model/MovieModel";
 import { OneMovie } from "../model/SingleMovie";
-import { fetchIdTMDB } from "../Service/tmdbService";
 
 export function SingleMovie() {
   const [movies, setMovies] = useState<Results[]>([]);
@@ -13,10 +11,6 @@ export function SingleMovie() {
   let foundMovie: OneMovie | undefined = movies.find(
     (movie) => id === movie.id
   );
-
-  useEffect(() => {
-    fetchIdTMDB().then((data) => setMovies(data));
-  }, []);
 
   if (!foundMovie) {
     foundMovie = {

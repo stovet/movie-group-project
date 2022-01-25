@@ -19,17 +19,17 @@ const Main = () => {
   const [title, setTitle] = useState("");
   const [genreId, setGenreId] = useState(28);
 
+  //HANDLES THE FORM SUBMISSION FUNCTION.
   function handleSubmit(page: number, title: string, genreId: number) {
-    //   console.log(rating);
     setPage(page);
     setTitle(title);
     setGenreId(genreId);
   }
 
+  //useEFFECT FOR GRABING THE DATA. IF STATEMENTS DETERMINE WHAT REQUEST WE USE.
   useEffect(() => {
     if (title.length > 1) {
       fetchTitleTMDB(title).then((data) => setMovies(data));
-      //fetchTMDB(page).then((data) => setMovies(data));
     } else if (page) {
       fetchTMDB(page).then((data) => setMovies(data));
       fetchGenreTMDB(page, genreId).then((data) => setMovies(data));

@@ -1,17 +1,14 @@
-import { useState } from "react";
-import { Route } from "react-router-dom";
 import { Results } from "../model/MovieModel";
 import Result from "./Result";
 
+//ACCEPTED A PROP FROM MAIN.TSX
 interface Prop {
   movies: Results[];
 }
 
 function ResultList({ movies }: Prop) {
-  const [checked, setChecked] = useState<boolean>(false);
-  const [hidden, setHidden] = useState<boolean>(true);
-
   return (
+    //MOVIES VARIABLE IS A LIST OF RESULTS SO WE CAN MAP THROUGH IT.
     <div className="ResultList">
       {movies.map((movie, i) => (
         <Result key={i} movie={movie} />

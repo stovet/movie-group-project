@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { MovieCategory } from "../model/MovieCategory";
 
+//PASSING ONSUBMIT FUNCTION PROPS TO HANDLE OUR FORM DATA COMING IN.
 interface Props {
   onSubmit: (rating: number, title: string, genreId: number) => void;
 }
@@ -41,6 +42,7 @@ function SearchForm({ onSubmit }: Props) {
     });
   }
 
+  //HANDLING THE FORM SUBMISSION AND CHANGING THE WAY WE CALL THE API.
   function handleFormSubmit(e: FormEvent) {
     e.preventDefault();
 
@@ -63,12 +65,11 @@ function SearchForm({ onSubmit }: Props) {
             name="rating"
             id="rating"
             min={1}
-            placeholder="1"
             onChange={(e) => setRating(parseFloat(e.target.value))}
           />
         </div>
         <div className="inputContainer">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
             name="title"
@@ -79,6 +80,7 @@ function SearchForm({ onSubmit }: Props) {
         <div className="inputContainer">
           <label htmlFor="genre">Genre:</label>
           <input
+            className="genreInput"
             type="text"
             name="genre"
             id="genre"

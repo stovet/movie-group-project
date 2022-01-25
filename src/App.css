@@ -18,12 +18,17 @@ body {
 .inputContainer {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
 }
 label {
   font-size: large;
   font-weight: bold;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.genreInput {
+  width: 164px;
 }
 
 .form {
@@ -42,16 +47,20 @@ label {
   text-decoration: none;
   color: white;
 }
+#watch-listbtn:hover {
+  text-decoration: none;
+  color: black;
+}
 
 button {
-  background-color: rgb(69, 69, 136);
+  background-color: rgb(70, 70, 71);
   color: white;
   border-radius: 5px;
   font-size: medium;
   padding: 5px 10px;
 }
 button:hover {
-  background-color: rgb(16, 163, 16);
+  background-color: rgb(41, 32, 33);
   color: black;
   transition-duration: 0.3s;
 }
@@ -92,7 +101,7 @@ button:hover {
 .Result img {
   box-shadow: 0 0 15px 5px rgb(0, 0, 0);
   border-radius: 20px;
-  transition: transform 450ms
+  transition: transform 450ms;
 }
 
 .Result img:hover {
@@ -150,6 +159,26 @@ button:hover {
   justify-content: center;
 }
 
+.Modal {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(50%);
+}
+.Modal p {
+  margin: 2px;
+}
+.Modal img {
+  transform: translateX(50%);
+}
+.Modal h1 {
+  text-align: center;
+}
+.Modal label {
+  float: right;
+}
+
 @media screen and (min-width: 768px) {
   img {
     width: 200px;
@@ -168,8 +197,8 @@ button:hover {
   img {
     width: 250px;
   }
-  .SingleMovie-container img {
-    max-width: 250px;
+  .Header h1 {
+    font-size: 60px;
   }
 }
 @media screen and (min-width: 1200px) {
