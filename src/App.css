@@ -11,6 +11,7 @@ body {
 /* SearchForm  */
 .SearchForm {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -42,7 +43,10 @@ label {
   width: 1;
   height: 25px;
 }
-
+.watchListBtn {
+ height: 35px;
+ transform: translateX(-60px);
+}
 #watch-listbtn {
   text-decoration: none;
   color: white;
@@ -69,13 +73,16 @@ button:hover {
 
 .Header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 100vw;
   font-family: "Great Vibes", cursive;
 }
 .Header h1 {
   font-size: 50px;
   margin-bottom: 0px;
+  margin-top: 0px;
+
+
 }
 
 /* ResultsList / Results */
