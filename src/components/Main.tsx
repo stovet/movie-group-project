@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Results } from "../model/MovieModel";
-import { fetchTMDB, fetchGenreTMDB, fetchTitleTMDB } from "../Service/tmdbService";
+import {
+  fetchTMDB,
+  fetchGenreTMDB,
+  fetchTitleTMDB,
+} from "../Service/tmdbService";
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
 import Header from "./Header";
@@ -15,19 +19,18 @@ const Main = () => {
   const [title, setTitle] = useState("");
   const [genreId, setGenreId] = useState(28);
 
+  //HANDLES THE FORM SUBMISSION FUNCTION.
   function handleSubmit(page: number, title: string, genreId: number) {
-    //   console.log(rating);
     setPage(page);
     setTitle(title);
     setGenreId(genreId);
   }
 
+  //useEFFECT FOR GRABING THE DATA. IF STATEMENTS DETERMINE WHAT REQUEST WE USE.
   useEffect(() => {
-    if(title.length > 1) {
-        fetchTitleTMDB(title).then((data) => setMovies(data))
-        //fetchTMDB(page).then((data) => setMovies(data));
-      }
-     else if (page) {
+    if (title.length > 1) {
+      fetchTitleTMDB(title).then((data) => setMovies(data));
+    } else if (page) {
       fetchTMDB(page).then((data) => setMovies(data));
       fetchGenreTMDB(page, genreId).then((data) => setMovies(data));
     }

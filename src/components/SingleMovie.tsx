@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Results } from "../model/MovieModel";
-import { fetchIdTMDB } from "../Service/tmdbService";
-import Result from "./Result";
+import { OneMovie } from "../model/SingleMovie";
 
 export function SingleMovie() {
   const [movies, setMovies] = useState<Results[]>([]);
   const id: number = parseInt(useParams().id!);
-  let foundMovie: Results | undefined = movies.find((movie) => id === movie.id);
+  const [searchParams] = useSearchParams();
 
-  useEffect(() => {
-    fetchIdTMDB(id).then((data) => setMovies);
-  }, [id]);
+  let foundMovie: OneMovie | undefined = movies.find(
+    (movie) => id === movie.id
+  );
 
   if (!foundMovie) {
     foundMovie = {
@@ -24,15 +23,17 @@ export function SingleMovie() {
     };
   }
   return (
-    <div className="Result">
-      <h1>{foundMovie.title}</h1>
-      <img
-        src={"https://image.tmdb.org/t/p/w300/" + foundMovie.poster_path}
-        alt="Cover art for movie"
-      />
-      <p>
-        {foundMovie.overview} - Rating: {foundMovie.vote_average}
-      </p>
+    <div className="SingleMovie">
+      <div className="SingleMovie-container">
+        <h1>{foundMovie.title}</h1>
+        <img
+          src={"https://image.tmdb.org/t/p/w300/" + foundMovie.poster_path}
+          alt="Cover art for movie"
+        />
+        <p>
+          {foundMovie.overview} - Rating: {foundMovie.vote_average}
+        </p>
+      </div>
     </div>
   );
 }
