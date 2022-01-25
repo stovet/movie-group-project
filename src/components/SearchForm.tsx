@@ -86,7 +86,11 @@ function SearchForm({ onSubmit }: Props) {
         </div>
         <button type="submit">Search</button>
       </form>
-     
+      {/* <button className="watchListBtn">
+        <a id="watch-listbtn" href="/watch-list">
+          Watch List
+        </a>
+      </button> */}
     </div>
   );
 }

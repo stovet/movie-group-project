@@ -73,7 +73,7 @@ button:hover {
 
 .Header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100vw;
   font-family: "Great Vibes", cursive;
 }
