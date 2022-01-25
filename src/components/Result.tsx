@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Results } from "../model/MovieModel";
-import { SingleMovie } from "./SingleMovie";
 
 interface Prop {
   movie: Results;
@@ -12,12 +12,12 @@ function Result({ movie }: Prop) {
   return (
     <div className="Result">
       <h2>{movie.title}</h2>
-      <a href={`/${movie.id}`}>
+      <Link to={`/${movie.id}`}>
         <img
           src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
           alt="Cover art for movie"
         />
-      </a>
+      </Link>
       <p>
         Rating: <span className="rating-box">{movie.vote_average}</span>
       </p>

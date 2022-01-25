@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Route } from "react-router-dom";
 import { Results } from "../model/MovieModel";
 import Result from "./Result";
-import { SingleMovie } from "./SingleMovie";
 
 interface Prop {
   movies: Results[];
@@ -10,6 +9,7 @@ interface Prop {
 
 function ResultList({ movies }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(true);
 
   return (
     <div className="ResultList">

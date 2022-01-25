@@ -30,17 +30,6 @@ export function fetchTMDB(page: number): Promise<Results[]> {
     .then((res) => res.data.results);
 }
 
-<<<<<<< HEAD
-export function fetchIdTMDB(id: number): Promise<Results> {
-  const api_key = process.env.REACT_API_TMDB_KEY || "";
-
-  return axios
-    .get("https://api.themoviedb.org/3/find/", {
-      params: { external_id: id, api_key: api_key },
-    })
-    .then((res) => res.data.results);
-}
-=======
 export function fetchTitleTMDB(title: string): Promise<Results[]> {
   const api_key = process.env.REACT_API_TMDB_KEY || "";
 
@@ -49,11 +38,19 @@ export function fetchTitleTMDB(title: string): Promise<Results[]> {
     .get("https://api.themoviedb.org/3/search/movie", {
       params: {
         api_key: "b80ce08c456bca9bb040f009efb1aaf9",
-        query: title
+        query: title,
       },
     })
     .then((res) => res.data.results);
 }
 
-// original_title.desc
->>>>>>> a002b905684c0ed1aa2dd33f45abb963be71d892
+export function fetchIdTMDB(): Promise<Results[]> {
+  const api_key = process.env.REACT_API_TMDB_KEY || "";
+  return axios
+    .get("https://api.themoviedb.org/3/discover/movie", {
+      params: {
+        api_key: "b80ce08c456bca9bb040f009efb1aaf9",
+      },
+    })
+    .then((res) => res.data.results);
+}
