@@ -9,7 +9,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { WatchList } from "./components/WatchList";
+import WatchList from "./components/WatchList";
+import Result from "./components/Result";
 import { SingleMovie } from "./components/SingleMovie";
 
 function App() {

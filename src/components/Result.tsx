@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Results } from "../model/MovieModel";
+import { SingleMovie } from "./SingleMovie";
+import WatchList from "./WatchList";
+import { WatchListDB } from "../model/WatchListDB";
 
 interface Prop {
   movie: Results;
@@ -8,6 +11,32 @@ interface Prop {
 
 function Result({ movie }: Prop) {
   const [checked, setChecked] = useState<boolean>(false);
+  const [watchListMovies, setWatchListMovies] = useState([
+    {
+      title: "test",
+      vote_average: 10,
+      overview: "test",
+      poster_path: "test",
+      original_language: "test",
+      id: 10,
+    },
+  ]);
+
+  function onWatchSubmit(newMovie: Results) {
+    console.log("Logged The Click");
+    WatchListDB.push(newMovie);
+    setWatchListMovies((prev) => [...prev, newMovie]);
+    // console.log(newMovie);
+    // console.log(movie);
+    // console.log(watchArray);
+    console.log(WatchListDB);
+    return WatchListDB;
+  }
+
+  if (checked) {
+    onWatchSubmit(movie);
+    setChecked(false);
+  }
 
   return (
     <div className="Result">
@@ -29,7 +58,7 @@ function Result({ movie }: Prop) {
               type="checkbox"
               name="checkbox"
               id="watchList"
-              onClick={(e) => setChecked(false)}
+              onClick={() => setChecked(false)}
             />
           </label>
         ) : (
@@ -39,7 +68,7 @@ function Result({ movie }: Prop) {
               type="checkbox"
               name="checkbox"
               id="watchList"
-              onClick={(e) => setChecked(true)}
+              onClick={() => setChecked(true)}
             />
           </label>
         )}

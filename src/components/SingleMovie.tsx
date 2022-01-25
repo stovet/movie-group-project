@@ -10,8 +10,6 @@ export function SingleMovie() {
   const id: number = parseInt(useParams().id!);
   const [searchParams] = useSearchParams();
 
-  console.log(searchParams.get(`searchTerm`));
-
   let foundMovie: OneMovie | undefined = movies.find(
     (movie) => id === movie.id
   );
@@ -19,9 +17,6 @@ export function SingleMovie() {
   useEffect(() => {
     fetchIdTMDB().then((data) => setMovies(data));
   }, []);
-
-  console.log(id);
-  console.log(foundMovie);
 
   if (!foundMovie) {
     foundMovie = {

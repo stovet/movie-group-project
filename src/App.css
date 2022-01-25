@@ -34,6 +34,8 @@ label {
 .SearchForm input {
   margin-bottom: 10px;
   border-radius: 5px;
+  width: 1;
+  height: 25px;
 }
 
 #watch-listbtn {
@@ -62,6 +64,10 @@ button:hover {
   width: 100vw;
   font-family: "Great Vibes", cursive;
 }
+.Header h1 {
+  font-size: 50px;
+  margin-bottom: 0px;
+}
 
 /* ResultsList / Results */
 
@@ -74,6 +80,7 @@ button:hover {
   border-radius: 10px;
   margin: 10px 0;
   border: 1px solid black;
+  box-shadow: 0 0 15px 5px rgb(0, 0, 0);
 }
 .Result p {
   display: flex;
@@ -85,6 +92,7 @@ button:hover {
 .Result img {
   box-shadow: 0 0 15px 5px rgb(0, 0, 0);
   border-radius: 20px;
+  transition: transform 450ms
 }
 
 .Result img:hover {
@@ -153,6 +161,7 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
 @media screen and (min-width: 900px) {
