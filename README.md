@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+Hi and welcome to the Better than Disney app! This is an app created by 3 students in the Grand Circus full stack front-end course.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Contributions made by Dwayne T, Steven T, and Logan A.
 
-## Available Scripts
+This app was created to show off everthing we have learned so far with React. From using .map too creating a fetch request to an API. (specail thanks to TMDB API service).
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- FLOW OF DATA  -->
+//Main page 
+When the page is first loaded we wanted to have our fetch request pull the "discover" data to populate top movies that are out now. We accomplised this by pulling the data,
+setting up a useState variable and storing the array data within it. From there we passed the movies array data to the results list as a prop.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+//Results List
+Now that the move array data is here in the Result List we can use some logic to itterate throught the array. The way we did this is use .map to loop through each movie and
+create a Result. However, we couldn't just stop there. We wanted to pass down the data one more time break down what a single Result is; again passing the data as a prop. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+//Result
+Now that we have broke down the array into a single movie we need to define what a single movie is. What do we displaly abou the movie? In this API we were able to pull
+information that is useful to do just that. We pulled the title, rating, overview and more. Now comes filling the HTML tags with the data and adding styles.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- Search Form -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+//Search form
+The search form is a big component that allows the user to freely interact with the data. We enabled the user to search by title, genre and page. Setting up the search form was 
+tricky since it involved many moving parts to create. First, we knew that we needed to grab the data from the input fields so we set up hooks to hold that data. Second, we set
+up the onChange and value atrributes to update the input in real time. Third, we then made a onSubmit function to handle the form submission and included the logic needed to
+apply the inputs from the user to the API. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- API / Fetch Requests -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+//Fetch Requests
+ We started with looking at the TMDB documention to make sure our endpoints were correct and pulling just the discover endpoint to show a list of movies. We quickly learned 
+ pagination of data (limited number of data coming through on a page ) so we used the page number query in our fetch request to allow the user to go through all the movies.
+ We set up another fetch request, still using the discover endpoint with page number query, but now we're adding the genre as another filter. Lastly we needed to search by movie
+ title which can use the same discover endpoint. The logic that controls what fetch request to use is in the Main file. 
+ 
+ 
